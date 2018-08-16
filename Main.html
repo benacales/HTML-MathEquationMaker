@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <meta name = "Math Equation Maker" content = "A program that takes a Basic Math Equation and Solves It";>
+    <title> Math Equation Maker </title>
+    
+</head>
+<body>
+
+    <div>
+        <select id = "valueOne" onclick="clicked()">
+            <option value = "null" selected > Select a number </option>
+            <!-- <option value = "0" > 0 </option>            
+            <option value = "1" > 1 </option>
+            <option value = "2" > 2 </option>
+            <option value = "3" > 3 </option>              
+            <option value = "4" > 4 </option>
+            <option value = "5" > 5 </option>
+            <option value = "6" > 6 </option>
+            <option value = "7" > 7 </option>
+            <option value = "8" > 8 </option>
+            <option value = "9" > 9 </option>                        -->
+        </select>
+
+        <!-- <select id = "valueOne" onclick="clicked()">
+            <script>
+                for (var i = 0 ; i < 10 ; i ++) { 
+                <option value = "i" > i </option> 
+                }
+            </script>           
+        </select> -->
+    </div>
+
+    <div>
+        <select id = "operation" onclick = "clicked()">
+            <option value = "null" selected> Choose </option>
+            <option value = "1"> + </option>
+            <option value = "2"> * </option>
+            <option value = "3"> - </option>
+            <option value = "4"> / </option>            
+        </select>
+    </div>
+
+    <div>
+        <select id = "valueTwo" onclick="clicked()">
+            <option value = "null" selected > Select a number </option>
+            <!-- <option value = "0" > 0 </option>                
+            <option value = "1" > 1 </option>
+            <option value = "2" > 2 </option>
+            <option value = "3" > 3 </option>              
+            <option value = "4" > 4 </option>
+            <option value = "5" > 5 </option>
+            <option value = "6" > 6 </option>
+            <option value = "7" > 7 </option>
+            <option value = "8" > 8 </option>
+            <option value = "9" > 9 </option>                        -->
+        </select>
+    </div>
+
+    <!-- <button type="button" onclick="clicked()">=</button> -->
+
+    <div id="answer"></div>
+    <script>
+
+        var Grayson = document.getElementById ("valueOne")
+        var Elizabeth = document.getElementById ("valueTwo")
+
+        for (var i = 0 ; i < 100 ; i ++) {
+            
+            var newOption1 = document.createElement ("option")
+            var text = document.createTextNode(i)
+            newOption1.appendChild(text)
+            newOption1.value = i
+
+            var newOption2 = document.createElement ("option")
+            var text = document.createTextNode(i)
+            newOption2.appendChild(text)
+            newOption2.value = i
+
+            Grayson.appendChild(newOption1);
+            Elizabeth.appendChild(newOption2);
+        }
+
+        function clicked(){
+            var a , b , c;
+            var operation;
+
+            a = document.getElementById("valueOne");
+            b = document.getElementById("valueTwo");
+            operation = document.getElementById("operation");
+            console.log("what am i ", a, b) 
+            console.log("what am i dude", a.options[a.selectedIndex]) 
+
+            var num1 = a.options[a.selectedIndex].value;
+            var num2 = b.options[b.selectedIndex].value;
+            var symbol = operation.options[operation.selectedIndex].value;
+
+            console.log("what am i NOW im weird ", num1, num2 , symbol)
+
+            if (symbol === "1")
+                c = parseInt(num1) + parseInt(num2);
+            if (symbol === "2")
+                c = parseInt(num1) * parseInt(num2);
+            if (symbol === "3")
+                c = parseInt(num1) - parseInt(num2);
+            if (symbol === "4")
+                c = parseInt(num1) / parseInt(num2);
+            console.log("what is swer", c);
+
+            var answerDiv = document.getElementById("answer");
+
+            if(num1 === "null" || num2 === "null"){
+               answerDiv.innerHTML = "you can't do that";
+            }
+            else if ((num2 === "0") && (symbol === "4")) {
+                answerDiv.innerHTML = "Cant divide by zero stupid"
+            }
+            else{
+                answerDiv.innerHTML = c;
+            }
+
+        }
+   
+    </script>
+
+</body>
+
+</html>
